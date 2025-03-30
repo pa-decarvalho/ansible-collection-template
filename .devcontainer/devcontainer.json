@@ -1,0 +1,13 @@
+{
+	"name": "Ansible Collection Template",
+	"build": {
+    "context": ".",
+    "dockerfile": "Dockerfile"
+  },
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": ["editorconfig.editorconfig"]
+		}
+	}
+}

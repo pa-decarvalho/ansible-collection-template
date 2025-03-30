@@ -1,0 +1,54 @@
+---
+version: "3"
+
+includes:
+  lint: .taskfiles/lint.yml
+  mkdocs: .taskfiles/mkdocs.yml
+
+tasks:
+  default:
+    cmds:
+      - task: help
+
+  init:
+    desc: Init project
+    silent: true
+    cmds:
+      - poetry install --with dev,lint,test,docs
+
+  clean:
+    desc: Cleanup project
+    silent: true
+    cmds:
+      - poetry env remove --all
+      - rm -rf output
+
+  reinit:
+    desc: Reinit project
+    silent: true
+    cmds:
+      - task: clean
+      - task: init
+
+  test:
+    desc: Test project
+    silent: true
+    cmds:
+      - |
+        poetry run copier copy --vcs-ref HEAD \
+          --data collection_name="my_collection" \
+          --data collection_namespace="my_namespace" \
+          --data description="My description" \
+          --data author_name="Dwight Schrute" \
+          --data author_email="dwight.schrute@dunder-mifflin.com" \
+          --data license="MIT" \
+          --data repo_url="https://example.com" \
+          --data mkdocs_site_url="https://example.com" \
+          --data mkdocs_theme="readthedocs" \
+          . output
+
+  help:
+    desc: Display help
+    silent: true
+    cmds:
+      - task --list

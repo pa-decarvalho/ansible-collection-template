@@ -1,0 +1,17 @@
+---
+# Project information
+site_name: Ansible Collection Template
+site_url: https://pa-decarvalho.github.io/ansible-collection-template/
+site_description: A ansible collection project template
+
+# Repository
+repo_name: ansible-collection-template
+repo_url: https://github.com/pa-decarvalho/ansible-collection-template
+
+# Theme
+theme:
+  name: readthedocs
+
+# Plugins
+plugins:
+  - search

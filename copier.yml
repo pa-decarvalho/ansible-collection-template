@@ -1,0 +1,6 @@
+---
+!include .copier/settings.yml
+---
+!include .copier/questions.yml
+---
+!include .copier/licenses.yml
