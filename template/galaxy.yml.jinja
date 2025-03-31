@@ -1,0 +1,23 @@
+---
+# See https://docs.ansible.com/ansible/latest/dev_guide/collections_galaxy_meta.html
+
+namespace: {{ collection_namespace }}
+name: {{ collection_name }}
+version: 0.0.0
+readme: README.md
+authors:
+  - {{ author_name }} <{{ author_email }}>
+
+description: |
+    {{ description }}
+license_file: LICENSE
+tags: []
+dependencies: {}
+
+repository: {{ repo_url }}
+documentation: {{ mkdocs_site_url }}
+homepage: {{ repo_url }}
+issues: {{ repo_url }}/issues
+
+build_ignore:
+  - .gitignore
