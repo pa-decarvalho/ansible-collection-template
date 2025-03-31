@@ -1,0 +1,9 @@
+---
+image:
+  file: .devcontainer/Dockerfile
+
+tasks:
+  - name: Init dev project
+    command: |
+      task init
+      task help
