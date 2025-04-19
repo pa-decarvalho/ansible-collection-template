@@ -34,6 +34,7 @@ tasks:
     desc: Test project
     silent: true
     cmds:
+      - rm -rf output
       - |
         poetry run copier copy --vcs-ref HEAD \
           --data collection_name="my_collection" \
@@ -46,6 +47,10 @@ tasks:
           --data mkdocs_site_url="https://example.com" \
           --data mkdocs_theme="readthedocs" \
           . output
+        cd output
+        git init
+        task init
+        task test
 
   help:
     desc: Display help

@@ -1,0 +1,39 @@
+---
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: help
+
+  init:
+    desc: Init project
+    silent: true
+    cmds:
+      - poetry install --with dev,lint,test,docs
+
+  clean:
+    desc: Cleanup project
+    silent: true
+    cmds:
+      - poetry env remove --all
+
+  reinit:
+    desc: Reinit project
+    silent: true
+    cmds:
+      - task: clean
+      - task: init
+
+  test:
+    desc: Reinit project
+    silent: true
+    dir: extensions
+    cmds:
+      - poetry run molecule test
+
+  help:
+    desc: Display help
+    silent: true
+    cmds:
+      - task --list
