@@ -6,7 +6,7 @@ tasks:
     desc: Check all commit messages from first commit
     silent: true
     cmds:
-      - poetry run cz check --rev-range <changecommit>..HEAD
+      - poetry run cz check --rev-range 9f66ef5..HEAD
 
   ruff:
     desc: Run ruff linter
