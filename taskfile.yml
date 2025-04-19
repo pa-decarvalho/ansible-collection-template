@@ -51,6 +51,7 @@ tasks:
         git init
         task init
         task test
+        poetry run ansible-lint
 
   help:
     desc: Display help
