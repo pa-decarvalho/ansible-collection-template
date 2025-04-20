@@ -1,3 +1,9 @@
+## 0.7.0 (2025-04-20)
+
+### Feat
+
+- add Task command reconverge
+
 ## 0.6.0 (2025-04-20)
 
 ### Feat
