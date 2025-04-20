@@ -1,6 +1,11 @@
 ---
 version: "3"
 
+includes:
+  lint: .taskfiles/lint.yml
+  molecule: .taskfiles/molecule.yml
+  copier: .taskfiles/copier.yml
+
 tasks:
   default:
     cmds:
@@ -24,6 +29,12 @@ tasks:
     cmds:
       - task: clean
       - task: init
+
+  lint:
+    desc: Run project linters
+    silent: true
+    cmds:
+      - task: lint:all
 
   test:
     desc: Reinit project

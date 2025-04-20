@@ -50,8 +50,8 @@ tasks:
         cd output
         git init
         task init
+        task lint
         task test
-        poetry run ansible-lint
 
   help:
     desc: Display help
