@@ -37,10 +37,10 @@ tasks:
       - task: lint:all
 
   test:
-    desc: Reinit project
+    desc: Run project tests
     silent: true
     cmds:
-      - poetry run molecule test
+      - task: molecule:test
 
   help:
     desc: Display help
