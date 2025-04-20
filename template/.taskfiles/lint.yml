@@ -1,0 +1,22 @@
+---
+version: "3"
+
+tasks:
+  yamllint:
+    desc: Run yamllint linter
+    silent: true
+    cmds:
+      - poetry run yamllint -c .config/yamllint.yml . --strict
+
+  ansible-lint:
+    desc: Run ansible-lint linter
+    silent: true
+    cmds:
+      - poetry run ansible-lint
+
+  all:
+    desc: Run all linters
+    silent: true
+    cmds:
+      - task: yamllint
+      - task: ansible-lint

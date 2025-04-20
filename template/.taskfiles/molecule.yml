@@ -1,0 +1,21 @@
+---
+version: "3"
+
+tasks:
+  converge:
+    desc: Run molecule converge
+    silent: true
+    cmds:
+      - poetry run molecule converge
+
+  test:
+    desc: Run molecule test
+    silent: true
+    cmds:
+      - poetry run molecule test
+
+  destroy:
+    desc: Run molecule destroy
+    silent: true
+    cmds:
+      - poetry run molecule destroy
