@@ -8,6 +8,13 @@ tasks:
     cmds:
       - poetry run molecule converge
 
+  reconverge:
+    desc: Run molecule destroy & converge
+    silent: true
+    cmds:
+      - poetry run molecule destroy
+      - poetry run molecule converge
+
   test:
     desc: Run molecule test
     silent: true
