@@ -1,3 +1,9 @@
+## 0.2.0 (2025-04-20)
+
+### Feat
+
+- change default molecule platform
+
 ## 0.1.0 (2025-04-19)
 
 ### Feat
