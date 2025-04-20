@@ -1,0 +1,7 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Verify example
+      ansible.builtin.debug:
+        msg: Hello world !
