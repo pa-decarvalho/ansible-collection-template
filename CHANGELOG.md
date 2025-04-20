@@ -1,3 +1,9 @@
+## 0.6.0 (2025-04-20)
+
+### Feat
+
+- change Task test command
+
 ## 0.5.0 (2025-04-20)
 
 ### Feat
