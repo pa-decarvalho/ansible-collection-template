@@ -1,3 +1,9 @@
+## 0.8.0 (2025-04-24)
+
+### Feat
+
+- add .ansible folder to gitignore
+
 ## 0.7.0 (2025-04-20)
 
 ### Feat
