@@ -52,6 +52,7 @@ tasks:
         task init
         task lint
         task test
+        rm -rf .git
 
   help:
     desc: Display help
