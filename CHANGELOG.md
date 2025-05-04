@@ -1,3 +1,9 @@
+## 0.9.0 (2025-05-04)
+
+### Feat
+
+- add .gitpod automations.yaml file
+
 ## 0.8.0 (2025-04-24)
 
 ### Feat
