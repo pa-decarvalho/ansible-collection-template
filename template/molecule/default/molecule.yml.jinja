@@ -6,9 +6,9 @@ driver:
   name: docker
 
 platforms:
-  - name: ${USER}-{{ collection_name | replace('_', '-') }}-${MOLECULE_DISTRO:-ubuntu2404}
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2404}-ansible:latest
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
+  - name: ${USER}-{{ collection_name | replace('_', '-') }}-${MOLECULE_DISTRO}
+    image: geerlingguy/docker-${MOLECULE_DISTRO}-ansible:latest
+    command: ${MOLECULE_DOCKER_COMMAND}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     cgroupns_mode: host

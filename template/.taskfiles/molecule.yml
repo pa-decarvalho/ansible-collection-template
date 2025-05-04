@@ -1,12 +1,24 @@
 ---
 version: "3"
 
+env:
+  MOLECULE_DISTRO: ubuntu2404
+  MOLECULE_DOCKER_COMMAND: ""
+
 tasks:
   converge:
     desc: Run molecule converge
     silent: true
     cmds:
       - poetry run molecule converge
+
+  converge:*:
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
+    desc: Run molecule converge with specific scenario
+    silent: true
+    cmds:
+      - poetry run molecule converge --scenario-name {{.SCENARIO}}
 
   reconverge:
     desc: Run molecule destroy & converge
@@ -15,14 +27,53 @@ tasks:
       - poetry run molecule destroy
       - poetry run molecule converge
 
+  reconverge:*:
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
+    desc: Run molecule destroy & converge with specific scenario
+    silent: true
+    cmds:
+      - poetry run molecule destroy --scenario-name {{.SCENARIO}}
+      - poetry run molecule converge --scenario-name {{.SCENARIO}}
+
   test:
     desc: Run molecule test
     silent: true
     cmds:
       - poetry run molecule test
 
+  test:*:
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
+    desc: Run molecule test with specific scenario
+    silent: true
+    cmds:
+      - poetry run molecule test --scenario-name {{.SCENARIO}}
+
   destroy:
     desc: Run molecule destroy
     silent: true
     cmds:
       - poetry run molecule destroy
+
+  destroy:*:
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
+    desc: Run molecule destroy with specific scenario
+    silent: true
+    cmds:
+      - poetry run molecule destroy --scenario-name {{.SCENARIO}}
+
+  verify:
+    desc: Run molecule verify
+    silent: true
+    cmds:
+      - poetry run molecule verify
+
+  verify:*:
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
+    desc: Run molecule verify with specific scenario
+    silent: true
+    cmds:
+      - poetry run molecule verify --scenario-name {{.SCENARIO}}
