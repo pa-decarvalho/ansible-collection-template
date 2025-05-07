@@ -6,7 +6,7 @@ driver:
   name: docker
 
 platforms:
-  - name: ${USER}-{{ collection_name | replace('_', '-') }}-${MOLECULE_DISTRO}
+  - name: ${USER}-${MOLECULE_SCENARIO_NAME}-{{ collection_name | replace('_', '-') }}-${MOLECULE_DISTRO}
     image: geerlingguy/docker-${MOLECULE_DISTRO}-ansible:latest
     command: ${MOLECULE_DOCKER_COMMAND}
     volumes:

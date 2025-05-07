@@ -40,7 +40,7 @@ tasks:
     desc: Run project tests
     silent: true
     cmds:
-      - task: molecule:test
+      - task: molecule:test:all
 
   help:
     desc: Display help
