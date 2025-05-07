@@ -1,3 +1,10 @@
+## 0.10.0 (2025-05-07)
+
+### Feat
+
+- refactor all Task molecule file
+- add wildcard for molecule
+
 ## 0.9.0 (2025-05-04)
 
 ### Feat
