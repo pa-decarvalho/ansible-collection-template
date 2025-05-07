@@ -51,6 +51,11 @@ tasks:
         git init
         task init
         task lint
+        cp -r molecule/default molecule/test
+        task molecule:converge:*
+        task molecule:destroy:*
+        task molecule:converge:test
+        task molecule:destroy:test
         task test
         rm -rf .git
 

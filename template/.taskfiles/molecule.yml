@@ -1,28 +1,54 @@
 ---
 version: "3"
 
+env:
+  MOLECULE_DISTRO: ubuntu2404
+  MOLECULE_DOCKER_COMMAND: ""
+
 tasks:
-  converge:
+  converge:*:
     desc: Run molecule converge
     silent: true
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
     cmds:
-      - poetry run molecule converge
+      - poetry run molecule converge --scenario-name {{.SCENARIO}}
 
-  reconverge:
+  reconverge:*:
     desc: Run molecule destroy & converge
     silent: true
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
     cmds:
-      - poetry run molecule destroy
-      - poetry run molecule converge
+      - poetry run molecule destroy --scenario-name {{.SCENARIO}}
+      - poetry run molecule converge --scenario-name {{.SCENARIO}}
 
-  test:
-    desc: Run molecule test
-    silent: true
-    cmds:
-      - poetry run molecule test
-
-  destroy:
+  destroy:*:
     desc: Run molecule destroy
     silent: true
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
     cmds:
-      - poetry run molecule destroy
+      - poetry run molecule destroy --scenario-name {{.SCENARIO}}
+
+  verify:*:
+    desc: Run molecule verify
+    silent: true
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
+    cmds:
+      - poetry run molecule verify --scenario-name {{.SCENARIO}}
+
+  test:*:
+    desc: Run molecule test
+    silent: true
+    vars:
+      SCENARIO: '{{ if lt (len .MATCH) 1 }}default{{ else }}{{ index .MATCH 0 }}{{ end }}'
+    cmds:
+      - poetry run molecule test --scenario-name {{.SCENARIO}}
+
+  test:all:
+    desc: Run all molecule tests
+    silent: true
+    cmds:
+      - poetry run molecule test --all
